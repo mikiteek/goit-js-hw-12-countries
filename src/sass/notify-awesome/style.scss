@@ -2,8 +2,7 @@
 @import "notify-awesome/animations";
 @import "notify-awesome/popups";
 @import "notify-awesome/toasts";
-@import "notify-awesome/style";
-@import "base";
-@import "components/spinner";
-@import "countries";
-@import "country";
+
+[class^="awn-"] {
+  box-sizing: border-box;
+}
