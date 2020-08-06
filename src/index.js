@@ -32,6 +32,7 @@ const debouncedInputQuery = debounce(event => {
         else {
           refs.ul.innerHTML = "";
           notifier.warning("Unknown country, please enter correct query");
+          handleSpinner.hideSpinner();
         }
       });
   }
