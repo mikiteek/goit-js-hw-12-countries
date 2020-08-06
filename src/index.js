@@ -14,25 +14,22 @@ const debouncedInputQuery = debounce(event => {
     handleSpinner.showSpinner();
     fetchCountries(query)
       .then(countries => {
+        handleSpinner.hideSpinner();
         if (countries !== 404) {
           if (countries.length > 10) {
             refs.ul.innerHTML = "";
             notifier.warning("too many matches found, please enter a better query");
-            handleSpinner.hideSpinner();
           }
           else if (countries.length === 1) {
             markupTemplate(countryTemplate, countries);
-            handleSpinner.hideSpinner();
           }
           else {
             markupTemplate(countriesTemplate, countries);
-            handleSpinner.hideSpinner();
           }
         }
         else {
           refs.ul.innerHTML = "";
           notifier.warning("Unknown country, please enter correct query");
-          handleSpinner.hideSpinner();
         }
       });
   }
